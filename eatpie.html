@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="img/eatpie/8.png"/>
+    <title>Eat Pie, Say Eat Pie.</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/eatpie.css">
+
+    <script src="js/jquery-3.4.1.min.js" defer></script>
+    <script src="js/bootstrap.js" defer></script>
+    <script src="js/eatpie.js" defer></script>
+
+
+
+
+</head>
+<body id="body" class="bg">
+
+
+<audio id="player" loop preload="auto">
+    <source id="playersong" src="img/eatpie/album/songfile/0loop.mp3" type="audio/mpeg">
+    Browser not compatible with sound
+</audio>
+
+
+
+<div class="container-fluid col-12 row no-gutters p-0" id="screen" style="user-select: none;">
+
+
+    <nav class="navbar navbar-expand-sm navbar-light navbarpuchi navbarsmol" style="border-radius:25px;left:15px;bottom:15px">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#nesomodal" href="#">Neso</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#songsmodal" href="#">Song</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#upgradesmodal" href="#">Upgrades</a>
+                </li>
+                <li class="nav-item dropup" id="cheatnavbar">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cheats
+                    </a>
+                    <div class="dropdown-menu navpuchi" style="width:256px" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" style="pointer-events:none" href="#"><h3>Cheats</h3></a>
+
+
+                        <div class="form-group" style="padding-left:8px">
+                            <button type="button" id="x2PieCheat" class="btn btn-primary btn-sm">x2 Pies</button>
+                            <button type="button" id="p1000PieCheat" class="btn btn-primary btn-sm">+1000 Pies</button>
+                            <hr>
+                            <a class="dropdown-item" style="pointer-events:none" >Pies</a>
+                            <input type="text" id="piebox" class="form-control" placeholder="" style="width:95%">
+                            <a class="dropdown-item" style="pointer-events:none" >Pies per click</a>
+                            <input type="text" id="multpclickbox" class="form-control" placeholder="" style="width:95%">
+                            <a class="dropdown-item" style="pointer-events:none" >Pies per seconds</a>
+                            <input type="text" id="multpsecbox" class="form-control" placeholder="" style="width:95%">
+                            <br>
+                            <button type="button" id="cheatbutton" class="btn btn-primary btn-sm">Apply</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="savebutton" href="#">Save</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#settingsmodal" href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <img id="cursor1" src="img/eatpie/cursor1.png" draggable="false" style="position: absolute;left:0;top:0" width="50"/>
+    <img id="cursor2" src="img/eatpie/cursor2.png" draggable="false" style="position: absolute;left:0;top:0" width="50"/>
+    <img id="cursor3" src="img/eatpie/cursor3.png" draggable="false" style="position: absolute;left:0;top:0" width="50"/>
+
+
+    <div class="col-12">
+        <br>
+
+    </div>
+
+    <div id="banner" class="col-12 p0 no-gutters bg1 row text-center" style="height:206px">
+        <div class="col-xl-4 col-lg-2 col-sm-0">
+
+        </div>
+        <div class="col-xl-4 col-lg8 col-sm-12">
+            <br>
+            <h2 class="text1" id="pie"></h2>
+            <h2 class="text2">Pies</h2>
+            <div class="col-12 row p-0 no-gutters">
+                <div class=" col-6 text-left">
+                    <img src="img/eatpie/8.png" class="bounceclick" style="padding-top:4px" draggable="false" width="25"/>
+
+                </div>
+                <div class=" col-6 text-right">
+                    <img src="img/eatpie/8.png" class="bounceclick" draggable="false" width="30"/>
+                </div>
+            </div>
+
+
+            <div class="progress" style="height:10px">
+                <div id="clickbar" class="progress-bar progress-bar-striped progress-bar-animated pink" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0" style="width:0"></div>
+            </div>
+
+
+        </div>
+        <div class="col-3">
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-xl-4 col-lg-12 col-sm-12 divsmol">
+
+
+
+
+    </div>
+
+
+
+    <div class="col-xl-4 col-lg-12 col-sm-12 text-center">
+        <div class="row">
+            <div class="col-6">
+                <img src="img/eatpie/showtimegauge.png" class="bounceclick" style="position:absolute;left:40px" draggable="false" width="256px"/>
+                <img id="showtimebar" src="img/eatpie/showtimebar.png" class="bounceclick" style="position:absolute;left:40px;clip:rect(0,0,24px,0)" draggable="false" width="256px"/>
+                <br>
+                <img id="showtimeIMG" src="img/eatpie/showtime.png" width="192px">
+
+
+            </div>
+            <div class="col-6">
+            </div>
+        </div>
+        <br>
+        <img id="neso" src="img/eatpie/8.png" class="bounceclick smol1" draggable="false" style="touch-action: manipulation" width="384"/>
+        <br>
+        <br>
+
+
+    </div>
+
+    <div class="col-xl-4 col-lg-12 col-sm-12 px-2 text-left">
+        <h1 class="text-center"><img src="img/eatpie/info.png" height="30" class="bounceclick1" draggable="false"/> Infos</h1>
+        <div id="card1" class="card bgbrown shadow" style="width:99%;border-radius:20px">
+            <div class="card-body">
+                <img src="img/eatpie/click.png" class="bounceclick1" draggable="false" width="50"/>
+                <h1 id="ppc" style="display:inline;">PPc (Pies per click) : 1 </h1>
+                <h3 id="ppcbonus" style="display:inline;">+ 0 bonus</h3>
+                <h1></h1>
+                <img src="img/eatpie/sec.png" id="secimg" class="bounceclick1" draggable="false" width="50"/>
+                <h1 id="pps" style="display:inline;"> PPs (Pies per seconds) : 0</h1>
+                <h3 id="ppsbonus" style="display:inline;">+ 0 bonus</h3>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="modal fade" id="nesomodal"  tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <hr style="height:40px;position:fixed;top:300px" width="100%">
+                <div id="modalheader4" style="z-index:2" class="modal-header bgbrown">
+                    <h1 class="modal-title">Neso</h1>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="modalbody4" style="z-index:2" class="modal-body bgbrown">
+                    <div class="col-xl-12 col-lg-12 col-sm-12 row p-0 no-gutters">
+                        <div class="col-3 p-0 text-center">
+                            <img id="idolsel" src="img/eatpie/idol/0.png" class="bounceclick" draggable="false" height="250px"/>
+
+                        </div>
+
+                        <div class="col-9 p-0 no-gutters" id="nesoSelectDiv" style="width:99%;border-bottom-left-radius:10px;border-bottom-right-radius:10px">
+                            <h1 id="nesoName" style="font-weight:bold">Ruby</h1>
+                            <p id="status">1st year</p>
+                            <hr>
+                            <h1>Description</h1>
+                            <p id="nesoDesc"></p>
+
+                        </div>
+                        <hr>
+                        <hr>
+                        <hr>
+
+                        <img id="neso0" src="img/eatpie/0.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+                        <img id="neso1" src="img/eatpie/1.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+                        <img id="neso2" src="img/eatpie/2.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+                        <img id="neso3" src="img/eatpie/3.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+                        <img id="neso4" src="img/eatpie/4.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+                        <img id="neso5" src="img/eatpie/5.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+                        <img id="neso6" src="img/eatpie/6.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+                        <img id="neso7" src="img/eatpie/7.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+                        <img id="neso8" src="img/eatpie/8.png" class="bounceclick" draggable="false" style="padding:12px;border: 2px solid #cdcdcd" width="11%"/>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="songsmodal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div id="modalheader3" class="modal-header bgbrown">
+                    <h1 class="modal-title"><img src="img/eatpie/song.png" height="30" class="bounceclick1" draggable="false"/> Song</h1>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="modalbody3" class="modal-body bgbrown">
+
+                    <div style="padding-bottom:10px" class="col-xl-12 col-lg-12 col-sm-12 row">
+                        <div class="col-xl-4 col-lg-12 col-sm-12 px-2">
+                            <img src="img/eatpie/album/0.png" id="s1" class="bounceclick1 shadow1 smol2" draggable="false" width="180"/>
+                        </div>
+                        <div class="col-xl-8 col-lg-12 col-sm-12">
+                            <br>
+                            <h1>青空Jumping Heart</h1>
+                            <h1>+20% PPs</h1>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div style="padding-bottom:10px" class="col-12 row px-2">
+                        <div class="col-xl-4 col-lg-12 col-sm-12">
+                            <img src="img/eatpie/album/1.png" id="s2" class="bounceclick1 shadow1 smol2" draggable="false" width="180"/>
+                        </div>
+                        <div class="col-xl-8 col-lg-12 col-sm-12">
+                            <br>
+                            <h1>HAPPY PARTY TRAIN</h1>
+                            <h1>+20% PPc</h1>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div style="padding-bottom:10px" class="col-12 row px-2">
+                        <div class="col-xl-4 col-lg-12 col-sm-12">
+                            <img src="img/eatpie/album/2.png" id="s3" class="bounceclick1 shadow1 smol2" draggable="false" width="180"/>
+                        </div>
+                        <div class="col-xl-8 col-lg-12 col-sm-12">
+                            <br>
+                            <h1>未来の僕らは知ってるよ</h1>
+                            <h1>+10% PPs, +10% PPc</h1>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="upgradesmodal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div id="modalheader2" class="modal-header bgbrown">
+                    <h1 class="modal-title"><img src="img/eatpie/upgrade.png" height="35" class="bounceclick1" draggable="false"/> Upgrades</h1>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="modalbody2" class="modal-body bgbrown text-left">
+                    <h1 style="display:inline;"><img src="img/eatpie/upgrades/2x.png" class="bounceclick1" draggable="false" width="50"/> 2x PPc <button id="2x" type="button" class="btn btn-danger pink bounceclick">35 pies</button></h1>
+                    <h3 id="2xlvl" style="display:inline;">Lvl: 0</h3>
+                    <hr>
+                    <img src="img/eatpie/upgrades/1.png" class="bounceclick1" draggable="false" width="34"/>
+                    <h1 style="display:inline;">+1 PPs </h1><button id="u1" type="button" class="btn btn-danger pink bounceclick">20 pies</button>
+                    <h3 id="u1lvl" style="display:inline;">Lvl: 0</h3>
+                    <p></p>
+                    <img src="img/eatpie/upgrades/2.png" class="bounceclick1" draggable="false" width="34"/>
+                    <h1 style="display:inline;">+3 PPs <button id="u2" type="button" class="btn btn-danger pink bounceclick">160 pies</button></h1>
+                    <h3 id="u2lvl" style="display:inline;">Lvl: 0</h3>
+                    <p></p>
+                    <img src="img/eatpie/upgrades/3.png" class="bounceclick1" draggable="false" width="34"/>
+                    <h1 style="display:inline;">+11 PPs <button id="u3" type="button" class="btn btn-danger pink bounceclick">1800 pies</button></h1>
+                    <h3 id="u3lvl" style="display:inline;">Lvl: 0</h3>
+                    <p></p>
+                    <img src="img/eatpie/upgrades/4.png" class="bounceclick1" draggable="false" width="34"/>
+                    <h1 style="display:inline;">+45 PPs <button id="u4" type="button" class="btn btn-danger pink bounceclick">20000 pies</button></h1>
+                    <h3 id="u4lvl" style="display:inline;">Lvl: 0</h3>
+                    <p></p>
+                    <img src="img/eatpie/upgrades/5.png" class="bounceclick1" draggable="false" width="34"/>
+                    <h1 style="display:inline;">+165 PPs <button id="u5" type="button" class="btn btn-danger pink bounceclick">95000 pies</button></h1>
+                    <h3 id="u5lvl" style="display:inline;">Lvl: 0</h3>
+                    <br>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="settingsmodal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div id="modalheader1" class="modal-header bgbrown">
+                    <h1 class="modal-title"><img id="woobleah" src="img/eatpie/8.png" class="bounceclick1" height="30"/> Settings</h1>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="modalbody1" class="modal-body bgbrown text-left">
+                    <label class="container"><h3 style="padding-top:12px;font-size:1.05rem">Poorly made dark mode</h3>
+                        <input id="checkbox1" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container"><h3 style="padding-top:12px;font-size:1.05rem">Clicking animation</h3>
+                        <input id="clickAnimationCheckbox" type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <hr>
+                    <h3>Volume</h3>
+                    <div class="slidecontainer">
+                        <p>Song volume : <span id="volumeLevel"></span></p>
+                        <input type="range" min="0" max="100" value="25" class="slider" id="volumeSlider">
+
+                    </div>
+                    <hr>
+
+
+
+
+                    <h3 style="font-size:1rem">This garbage was made by Ruddy Dubois</h3>
+                    <h3 style="font-size:1rem">Version something</h3>
+                    <hr>
+                    <button id="reset" type="button" class="btn btn-danger pink bounceclick">Reset save</button>
+                    <button id="refreshbutton" type="button" class="btn btn-danger pink bounceclick">Refresh</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
