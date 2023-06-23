@@ -1,0 +1,212 @@
+input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.black {
+    color: #1b1e21;
+}
+
+.click {
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    from {-webkit-transform: scale(1.025);}
+    to {-webkit-transform: scale(0.99);}
+}
+
+.buttonclick:active {
+    animation-name: bounce;
+    animation-duration: 0.1s;
+}
+
+.scrollhorizontal {
+    overflow: scroll;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    display: inline;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkboxpuchi span {
+    height: 47px;
+    display: block;
+    padding-left: 40px;
+    padding-top: 3px;
+    user-select: none;
+    background: url("../img/menu/checkoff.png");
+    background-size: 32px;
+    background-repeat: no-repeat;
+}
+
+.checkboxpuchi input:checked + span {
+    background: url("../img/menu/checkon.png");
+    background-size: 32px;
+    background-repeat: no-repeat;
+}
+
+.buttoncentertext {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size:2.5rem;
+    font-weight:bold;
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: #995533;
+    pointer-events:none
+}
+
+.buttonhover:hover{
+    position: relative;
+    background-color: #cbcbcb;
+    opacity:0.865;
+    border-radius:50px;
+}
+
+
+@keyframes bgscroll {
+    from {background-position: 0 0;}
+    to {background-position: 0 150%;}
+}
+
+.bg1 {
+    background-image: url("../img/background/bg.png");
+    background-size:cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+
+    -webkit-animation: bgscroll 60s linear infinite;
+    animation: bgscroll 60s linear infinite;
+
+}
+
+.bg2 {
+    box-shadow: 0 2px 15px #636363;
+    background-color: rgba(255, 254, 249, 0);
+    z-index: 1;
+}
+
+.bg3 {
+    background: url("../img/background/bg1.png");
+}
+
+.bgbrown {
+    background-color: #bfab92;
+}
+
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+.bglistpink {
+    background-image: url("../img/background/bgpink.png");
+    background-size: 52px;
+    height:188px;
+
+}
+
+.bglistblue {
+    background: url("../img/background/bgblue.png");
+    background-size: 52px;
+    height:188px;
+}
+
+.songmusebg {
+    background-color: rgba(245, 133, 208, 0.8);
+    border-radius:25px;
+    backdrop-filter: blur(3px);
+}
+
+.songmusebg1 {
+    background-color: rgba(165, 0, 111, 0.8);
+    border-radius:20px;
+    backdrop-filter: blur(3px);
+}
+
+.songaqoursbg {
+    background-color: rgba(110, 177, 255, 0.8);
+    border-radius:25px;
+    backdrop-filter: blur(3px);
+}
+
+
+.navbarpuchi {
+    background-color: rgba(254, 253, 248, 0.96);
+    position: fixed;
+    box-shadow: 0 2px 8px #808080 ;
+    z-index:3;
+}
+
+.navpuchi {
+    background-color: rgb(254, 253, 248);
+    box-shadow: 0 2px 8px #808080 ;
+    border-radius: 0;
+    top:126%;
+}
+
+
+.trans {
+    background: rgba(220, 198, 221, 0.17);
+    box-shadow: 0 0 32px rgb(0, 0, 0);
+
+}
+
+.cardtrans {
+    background: rgba(223, 214, 221, 0.75);
+
+
+}
+
+.shadowcard {
+    box-shadow: 0 0 95px rgb(0, 0, 0);
+}
+
+
+.bgll {
+     background-image: url("../img/background/ll.png");
+     background-attachment: fixed;
+     background-position: center;
+
+     background-size: cover;
+}
+
+.bgimas {
+    background-image: url("../img/background/imas.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+@keyframes bounce {
+    from {-webkit-transform: scale(0.95);}
+    to {-webkit-transform: scale(1.05);}
+}
+
+.bounceclick:active {
+    animation-name: bounce;
+    animation-duration: 0.25s;
+}
+
+
+
+
+

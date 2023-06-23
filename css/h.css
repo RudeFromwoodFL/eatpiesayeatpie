@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'lovelive';
+    src: url('../font/lovelive.TTF');
+}
+
+@font-face {
+    font-family: 'magda';
+    src: url('../font/MagdaClean.otf');
+}
+
+
+
+
+h1{
+    color: rgb(21, 21, 21);
+    font-family:Arial;
+    font-size:1.45rem;
+}
+
+h2{
+    color: rgb(0, 0, 0);
+    font-family:Arial;
+    font-size:2.5rem;
+}
+
+h3{
+    color: rgb(49, 49, 49);
+    font-family: Arial;
+    font-size:0.85rem;
+}
+
+h4{
+    color: rgb(55, 55, 55);
+    font-family: Arial;
+    font-weight: bold;
+    font-size:1.5rem;
+}
+
+h5{
+    color: rgb(249, 249, 249);
+    font-family: Arial;
+    font-weight: lighter;
+    font-size:1.35rem;
+}
+
+h6{
+    color: rgb(0, 0, 0);
+    font-family:magda;
+    font-size:1.65rem;
+}
+

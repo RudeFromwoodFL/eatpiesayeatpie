@@ -1,0 +1,274 @@
+html, body {
+    height:100%;
+}
+
+@keyframes bgscroll {
+    from {background-position: 0 0;}
+    to {background-position: 0 150%;}
+}
+
+@media (max-width:768px){
+    img.smol1{
+        width:300px;
+    }
+    img.smol2{
+        width:175px;
+    }
+    .divsmol{
+        display: none;
+    }
+}
+
+@media (max-width:370px) {
+    img.smol1{
+        width:220px;
+    }
+    img.smol2{
+        width:150px;
+    }
+    .divsmol{
+        display: none;
+    }
+    .navbarsmol{
+        right:20px;
+    }
+}
+
+
+
+.bg {
+    background-image: url("../img/eatpie/bg/bg.png");
+    background-size:cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    -webkit-animation: bgscroll 60s linear infinite;
+    animation: bgscroll 60s linear infinite;
+
+}
+.bgd {
+    background-image: url("../img/eatpie/bg/bgd.png");
+    background-size:cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    -webkit-animation: bgscroll 60s linear infinite;
+    animation: bgscroll 60s linear infinite;
+
+}
+
+.bg1 {
+    background: url("../img/eatpie/bg/bg1.png");
+}
+.bg1d {
+    background: url("../img/eatpie/bg/bg1d.png");
+}
+
+.bg2 {
+    background: url("../img/eatpie/bg/bgpink.png") repeat-x top;
+}
+
+.bgbrown {
+    background-color: rgb(249, 248, 243);
+}
+
+.brown {
+    color: rgb(249, 248, 243);
+}
+
+.bggray {
+    background-color: rgb(61, 60, 62);
+}
+
+
+.shadow1 {
+    box-shadow: 2px 2px 20px #686868;
+}
+
+.pink{
+    background-color:hotpink;
+}
+
+.menubar {
+    overflow: hidden;
+    position: fixed;
+    width:100%;
+    bottom:0;
+    z-index:3;
+}
+
+
+.buttonbg{
+    background-image: url("../img/eatpie/button1.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height:52px;
+    width:120px;
+
+}
+
+
+
+
+
+input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkboxpuchi span {
+    display: block;
+    height: 47px;
+    padding-left: 40px;
+    padding-top: 3px;
+    user-select: none;
+    background: url("../img/eatpie/menu/checkoff.png");
+    background-size: 32px;
+    background-repeat: no-repeat;
+    transform: scale(0.85);
+}
+
+.checkboxpuchi input:checked + span {
+    background: url("../img/eatpie/menu/checkon.png");
+    background-size: 32px;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 47px;
+    width: 42px;
+    background: url("../img/eatpie/menu/checkoff.png");
+    transform: scale(0.662);
+
+}
+
+.container input:checked ~ .checkmark {
+    background: url("../img/eatpie/menu/checkon.png");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+h1 {
+    color: rgb(15, 15, 15);
+    font-family:Arial;
+    font-size:1.5rem;
+}
+
+h2 {
+    color: rgb(254, 253, 248);
+    font-family:Arial;
+    font-weight: bold;
+    font-size:4rem;
+}
+
+h3 {
+    color: rgb(25, 25, 25);
+    font-family:Arial;
+    font-size:1.25rem;
+}
+
+.text1 {
+    color: white;
+    font-size:3.5rem;
+    font-weight:bold;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #995533;
+    pointer-events:none
+}
+
+.text2 {
+    color: #BFAB92;
+    font-size:1.65rem;
+    font-weight:bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #995533;
+    pointer-events:none
+}
+
+
+
+.navbarpuchi {
+    background-color: rgb(254, 253, 248);
+    position: fixed;
+    box-shadow: 0 1px 6px #808080 ;
+    z-index:3;
+}
+
+.navpuchi {
+    background-color: rgb(254, 253, 248);
+    box-shadow: 0 1px 6px #808080 ;
+    border-radius: 0;
+
+}
+
+
+
+@keyframes bounce {
+    from {-webkit-transform: scale(1.035);}
+    to {-webkit-transform: scale(0.985);}
+}
+
+.bounceclick:active {
+    animation-name: bounce;
+    animation-duration: 0.1s;
+}
+
+@keyframes bounce1 {
+    from {-webkit-transform: scale(0.915);}
+    to {-webkit-transform: scale(1.045);}
+}
+
+.bounceclick1:active {
+    animation-name: bounce1;
+    animation-duration: 0.075s;
+}
+
+.bounceclick2 {
+    animation-name: bounce1;
+    animation-duration: 0.075s;
+}
+
+@keyframes bounce2 {
+    from {-webkit-transform: scale(1.1);}
+    to {-webkit-transform: scale(0.9);}
+}
+
+.bounceclick3:active {
+    animation-name: bounce2;
+    animation-duration: 5s;
+}
+
+
